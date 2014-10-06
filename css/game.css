@@ -1,0 +1,257 @@
+@-webkit-keyframes timeRunningOut {
+  0% { color: #FFFFFF; }
+  100% { color: #FF0000; }
+}
+@-moz-keyframes timeRunningOut {
+  0% { color: #FFFFFF; }
+  100% { color: #FF0000; }
+}
+@-ms-keyframes timeRunningOut {
+  0% { color: #FFFFFF; }
+  100% { color: #FF0000; }
+}
+@-o-keyframes timeRunningOut {
+  0% { color: #FFFFFF; }
+  100% { color: #FF0000; }
+}
+@keyframes timeRunningOut {
+  0% { color: #FFFFFF; }
+  100% { color: #FF0000; }
+}
+
+* {
+  padding:0;
+  margin:0;
+}
+
+html {
+  background-color: #000;
+}
+
+html, body {
+  width: 995px;
+  height: 600px;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  background: url(../images/greenbg.png);
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+button {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 0 30px;
+  line-height: 50px;
+  border: 3px solid #006438;
+  border-radius: 5px;
+  background: white;
+  color: #006438;
+  font-size: 30px;
+}
+
+button:hover {
+  background: #006438;
+  color: #ffffff;
+}
+
+#header {
+  z-index: 10;
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.25);
+  line-height: 30px;
+  font-size: 15px;
+}
+
+#header p {
+  padding: 0 10px;
+}
+
+#header .clock {
+  float: left;
+}
+
+#header .clock .runningout {
+  -webkit-animation: timeRunningOut 10s 1;
+  -moz-animation: timeRunningOut 10s 1;
+  -ms-animation: timeRunningOut 10s 1;
+  -o-animation: timeRunningOut 10s 1;
+  animation: timeRunningOut 10s 1;
+}
+
+#header .attempts {
+  float: right;
+}
+
+#game {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#deck {
+  display: none;
+  position: relative;
+  width: 760px;
+  height: 480px;
+  top: 75px;
+  left: 117px;
+}
+
+#intro {
+  position: relative;
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  /*background: url(../images/startpage.png) top left no-repeat;*/
+  /*width: 100%;*/
+  /*padding: 80px 0;*/
+  /*height: 330px;*/
+}
+
+#round-result {
+  display: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /*background:url(../images/endpage.png) top left no-repeat;*/
+}
+
+#round-result .result {
+  position: absolute;
+  top: 180px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+#final-result {
+  display: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /*background:url(../images/endpage.png) top left no-repeat;*/
+}
+
+#final-result .result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+}
+
+/* Define the 3D perspective view and dimension of each card. */
+.card {
+  position: absolute;
+  width: 109px;
+  height: 145px;
+  -webkit-transition: all .3s;
+     -moz-transition: all .3s;
+      -ms-transition: all .3s;
+       -o-transition: all .3s;
+          transition: all .3s;
+  -webkit-perspective: 600px;
+     -moz-perspective: 600px;
+      -ms-perspective: 600px;
+       -o-perspective: 600px;
+          perspective: 600px;
+  cursor: pointer;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition-property: opacity, transform, box-shadow;
+     -moz-transition-property: opacity, transform, box-shadow;
+      -ms-transition-property: opacity, transform, box-shadow;
+       -o-transition-property: opacity, transform, box-shadow;
+          transition-property: opacity, transform, box-shadow;
+  -webkit-transition-duration: 0.3s;
+     -moz-transition-duration: 0.3s;
+      -ms-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+       -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.front {
+  z-index: 10;
+  background: url(../images/deck.jpg) 0 -146px;
+}
+
+.back {
+  z-index: 8;
+  background: #efefef url(../images/deck.jpg);
+  -webkit-transform: rotate3d(0, 1, 0, -180deg);
+     -moz-transform: rotate3d(0, 1, 0, -180deg);
+      -ms-transform: rotate3d(0, 1, 0, -180deg);
+       -o-transform: rotate3d(0, 1, 0, -180deg);
+          transform: rotate3d(0, 1, 0, -180deg);
+}
+
+.card:hover .face,
+.card-flipped .face {
+  -webkit-box-shadow: 0 0 10px #aaa;
+     -moz-box-shadow: 0 0 10px #aaa;
+      -ms-box-shadow: 0 0 10px #aaa;
+       -o-box-shadow: 0 0 10px #aaa;
+          box-shadow: 0 0 10px #aaa;
+}
+
+.card-flipped .front {
+  z-index: 8;
+  -webkit-transform: rotate3d(0, 1, 0, 180deg);
+     -moz-transform: rotate3d(0, 1, 0, 180deg);
+      -ms-transform: rotate3d(0, 1, 0, 180deg);
+       -o-transform: rotate3d(0, 1, 0, 180deg);
+          transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.card-flipped .back {
+  z-index: 10;
+  -webkit-transform: rotate3d(0, 1, 0, 0deg);
+     -moz-transform: rotate3d(0, 1, 0, 0deg);
+      -ms-transform: rotate3d(0, 1, 0, 0deg);
+       -o-transform: rotate3d(0, 1, 0, 0deg);
+          transform: rotate3d(0, 1, 0, 0deg);
+}
+
+.card-removed {
+  opacity: 0;
+}
+
+.blueDino .back {background-position: 0 0;}
+.brownDino .back {background-position: -110px 0;}
+.redDino .back {background-position: -220px 0;}
+.greenDino .back {background-position: -330px 0;}
+.purpDino .back {background-position: -440px 0;}
+.burgDino .back {background-position: -550px 0;}
+.orangeDino .back {background-position: -660px 0;}
+.purp2Dino .back {background-position: -770px 0;}
+.pinkDino .back {background-position: -880px 0;}

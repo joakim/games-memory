@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang=en>
+  <head>
+    <meta charset="utf-8">
+    <title>Memory game</title>
+    <link rel="stylesheet" href="css/game.css">
+  </head>
+<body>
+
+  <header id="header">
+    <p class="clock"><span class="time"></span> seconds</p>
+    <p class="attempts">Attempt <span class="round"></span></p>
+  </header>
+
+  <section id="game">
+    <section id="intro">
+    	<button data-action="play">Play</button>
+    </section>
+
+    <section id="deck"></section>
+
+    <section id="round-result">
+      <p class="result">You scored <span class="score"></span></p>
+      <button data-action="retry">Try again</button>
+    </section>
+
+    <section id="final-result">
+      <p class="result">Your best time was <span class="time"></span> seconds.<br>
+        Your final score is <span class="score"></span>.</p>
+    </section>
+  </section>
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/game.js"></script>
+
+</body>
+</html>
