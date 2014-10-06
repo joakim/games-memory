@@ -4,8 +4,8 @@
 var config = {
 	rounds: 3,
 	timeout: 60,
-		scoring: function () {
-		return (config.timeout - state.time) * 10;
+	scoring: function () {
+		return Math.ceil((config.timeout - state.time) * Math.E * 10);
 	},
 	cards: [
 		'blueDino', 'blueDino',
